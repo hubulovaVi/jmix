@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/flowui/menu">
+
+    <menu id="application" title="msg://com.company.project_jmix/menu.application.title" opened="true">
+        <item view="Jm_User.list" title="msg://com.company.project_jmix.view.user/UserListView.title"/>
+        <item view="Jm_Project.list" title="msg://com.company.project_jmix.view.project/projectListView.title"/>
+        <item view="Jm_Task.list" title="msg://com.company.project_jmix.view.task/taskListView.title"/>
+        <item view="Jm_TimeEntity.list"
+              title="msg://com.company.project_jmix.view.timeentity/timeEntityListView.title"/>
+        <item view="Jm_Document.list" title="msg://com.company.project_jmix.view.document/documentListView.title"/>
+        <item view="Jm_ProjectStatsView"
+              title="msg://com.company.project_jmix.view.projectstats/projectStatsView.title"/>
+        <item view="Jm_WorkloadView" title="msg://com.company.project_jmix.view.workload/workloadView.title"/>
+    </menu>
+
+</menu-config>

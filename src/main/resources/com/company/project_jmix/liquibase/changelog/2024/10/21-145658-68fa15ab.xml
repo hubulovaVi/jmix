@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Jm">
+        <createTable tableName="JM_DOCUMENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_JM_DOCUMENT"/>
+            </column>
+            <column name="PROJECT_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILE_" type="VARCHAR(1024)"/>
+            <column name="NOTES" type="CLOB"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Jm">
+        <createIndex indexName="IDX_JM_DOCUMENT_PROJECT" tableName="JM_DOCUMENT">
+            <column name="PROJECT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="PROJECT_ID" baseTableName="JM_DOCUMENT"
+                                 constraintName="FK_JM_DOCUMENT_ON_PROJECT" referencedColumnNames="ID"
+                                 referencedTableName="JM_PROJECT"/>
+    </changeSet>
+</databaseChangeLog>

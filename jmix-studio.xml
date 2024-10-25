@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JmixDataStoreSettingsManager">
+    <moduleSettings>
+      <entry key="com.company.Project_Jmix.main">
+        <ModuleSettings>
+          <option name="dataStoreOptionsV2">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettingsV2>
+                    <option name="generateDdlType" value="CREATE_AND_UPDATE" />
+                    <option name="masterUrl" value="jdbc:postgresql://localhost/postgres" />
+                    <option name="supportedTypes">
+                      <option value="postgres" />
+                    </option>
+                  </DataStoreSettingsV2>
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
+    </moduleSettings>
+  </component>
+  <component name="JmixLiquibaseChangesConfig">
+    <exclude-change idName="IDX_JM_TASK_UNQ_NAME" tagName="createIndex" />
+    <exclude-change idName="IDX_JM_PROJECT_UNQ_NAME" tagName="createIndex" />
+  </component>
+  <component name="JmixPluginProjectSettings">
+    <option name="separateUpdateDropScripts" value="false" />
+    <option name="savedDbProperties">
+      <list>
+        <SavedDbProperties>
+          <option name="databaseName" value="Jm" />
+          <option name="dbType" value="hsqlfile" />
+          <option name="dbmsVersion" />
+          <option name="host" value=".jmix/hsqldb" />
+          <option name="url" value="jdbc:hsqldb:file:.jmix/hsqldb/Jm" />
+          <option name="user" value="sa" />
+        </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="5060" />
+          <option name="dbType" value="postgres" />
+          <option name="dbmsVersion" />
+          <option name="host" value="localhost" />
+          <option name="pass" value="root" />
+          <option name="url" value="jdbc:postgresql://localhost/5060" />
+          <option name="user" value="root" />
+        </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="Jm" />
+          <option name="dbType" value="hsql" />
+          <option name="dbmsVersion" />
+          <option name="host" value="localhost" />
+          <option name="url" value="jdbc:hsqldb:hsql://localhost/Jm" />
+          <option name="user" value="sa" />
+        </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="5060" />
+          <option name="dbType" value="oracle" />
+          <option name="dbmsVersion" />
+          <option name="host" value="localhost" />
+          <option name="pass" value="root" />
+          <option name="url" value="jdbc:oracle:thin:@//localhost/5060" />
+          <option name="user" value="root" />
+        </SavedDbProperties>
+      </list>
+    </option>
+  </component>
+</project>

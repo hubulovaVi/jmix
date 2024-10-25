@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Jm">
+        <createTable tableName="JM_NEW_ENTITY">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_JM_NEW_ENTITY"/>
+            </column>
+            <column name="JK_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Jm">
+        <createIndex indexName="IDX_JM_NEW_ENTITY_JK" tableName="JM_NEW_ENTITY">
+            <column name="JK_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="JK_ID" baseTableName="JM_NEW_ENTITY"
+                                 constraintName="FK_JM_NEW_ENTITY_ON_JK" referencedColumnNames="ID"
+                                 referencedTableName="JM_PROJECT"/>
+    </changeSet>
+</databaseChangeLog>

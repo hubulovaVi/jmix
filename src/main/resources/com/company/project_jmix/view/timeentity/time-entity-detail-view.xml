@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://timeEntityDetailView.title"
+      focusComponent="form">
+    <data>
+        <collection id="tasksDc" class="com.company.project_jmix.entity.Task">
+            <loader id="tasksDl" readOnly="true">
+                <query>
+                    <![CDATA[select tsk from Jm_Task tsk
+                    order by tsk.name asc]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <instance id="timeEntityDc"
+                  class="com.company.project_jmix.entity.TimeEntity">
+            <fetchPlan extends="_base">
+                <property name="task" fetchPlan="_instance_name">
+                    <property name="dueDate"/>
+                    <property name="assignee" fetchPlan="_base"/>
+                    <property name="project" fetchPlan="_base"/>
+                </property>
+                <property name="user" fetchPlan="_instance_name"/>
+            </fetchPlan>
+            <loader id="timeEntityDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="timeEntityDc">
+            <entityComboBox id="taskField" property="task" itemsContainer="tasksDc" metaClass="Jm_Task"
+                            label="msg://taskField.label">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityComboBox>
+            <textField id="timeSpentField" property="timeSpent"/>
+            <dateTimePicker id="entryDateField" property="entryDate"/>
+            <entityPicker id="userField" property="user">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
+            <textArea id="descriptionField" height="9.5em" property="description"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>
